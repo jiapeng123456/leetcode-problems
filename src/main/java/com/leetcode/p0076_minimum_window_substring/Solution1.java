@@ -16,6 +16,8 @@ import com.ciaoshen.leetcode.util.*;
  */
 class Solution1 implements Solution {
 
-    public String minWindow(String s, String t) {}
+    public String minWindow(String s, String t) {
+        return "";
+    }
 
 }
