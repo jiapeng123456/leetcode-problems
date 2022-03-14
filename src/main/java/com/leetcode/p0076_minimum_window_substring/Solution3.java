@@ -5,7 +5,7 @@ package com.leetcode.p0076_minimum_window_substring;
 import java.util.*;
 
 /** 
- * brute force
+ * 暴力破解（brute force）
  */
 class Solution3 implements Solution {
 

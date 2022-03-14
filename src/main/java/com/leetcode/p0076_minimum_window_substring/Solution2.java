@@ -3,20 +3,10 @@
  */
 package com.leetcode.p0076_minimum_window_substring;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
+ * 自己实现：根据滑动窗口原理的实现
+ * （速度比官方的快，因为使用了数组代替 Map）
  *
- *
- * 自己写的滑动窗口实现
- * log instance is defined in Solution interface
- * this is how slf4j will work in this class:
- * =============================================
- *     if (log.isDebugEnabled()) {
- *         log.debug("a + b = {}", sum);
- *     }
- * =============================================
  */
 class Solution2 implements Solution {
 
@@ -27,9 +17,6 @@ class Solution2 implements Solution {
         int resultRight = -1;
         String result = "";
 
-        // check data
-
-
         // init
         int sLen = s.length();
         SubstrChecker sc = new SubstrChecker(t);
@@ -38,18 +25,14 @@ class Solution2 implements Solution {
         // windows right
         int right = 0;
 
-        // satisfied str left
-        int satisfiedLeft;
-        int satisfiedRight;
-
         for (; right < sLen; right++) {
             sc.addChar(s.charAt(right));
 
-            if (sc.isSatisfied()) {
+            if (sc.isValid()) {
 
                 sc.deleteChar(s.charAt(left));
                 left++;
-                while (sc.isSatisfied()) {
+                while (sc.isValid()) {
                     sc.deleteChar(s.charAt(left));
                     left++;
                 }
@@ -78,36 +61,40 @@ class Solution2 implements Solution {
 
 
     class SubstrChecker {
-        private int[] alphaCounter = new int[58];
-        private int[] currAlphaNum = new int[58];
-        private int hitCounter = 0;
-        private int totalCounter = 0;
-        private int subStrLen;
-        private Set<Integer> alphabetsIdxSet = new HashSet<>();
 
+        // t 中每个字母出现的次数
+        private int[] alphaCounter = new int[58];
+        // 窗口中字母出现的次数
+        private int[] windowAlphaNum = new int[58];
+        // 当前符合要求的字母个数
+        private int hitCounter = 0;
+        // t 字符串中总共的字母个数。
+        private int totalCounter = 0;
+        // t 的长度
+        private int strLen;
 
         public SubstrChecker(String t) {
-            subStrLen = t.length();
+            strLen = t.length();
 
             // init all char with not exist value(mininum value)
             for (int i = 0; i < alphaCounter.length; i++) {
                 alphaCounter[i] = Integer.MIN_VALUE;
             }
-            System.arraycopy(alphaCounter, 0, currAlphaNum, 0, alphaCounter.length);
+            System.arraycopy(alphaCounter, 0, windowAlphaNum, 0, alphaCounter.length);
 
 
             // set chars in t with 0
             char ch;
-            for (int i = 0; i < subStrLen; i++) {
+            for (int i = 0; i < strLen; i++) {
                 ch = t.charAt(i);
+                // 转换成字母对应的数组下标
                 int alphabetsIdx = (int) ch - 65;
                 if (alphaCounter[alphabetsIdx] == Integer.MIN_VALUE) {
                     alphaCounter[alphabetsIdx] = 1;
-                    currAlphaNum[alphabetsIdx] = 0;
+                    windowAlphaNum[alphabetsIdx] = 0;
                     totalCounter++;
-                    alphabetsIdxSet.add(alphabetsIdx);
                 } else if (alphaCounter[alphabetsIdx] > 0) {
-                    alphaCounter[alphabetsIdx] = ++alphaCounter[alphabetsIdx];
+                    alphaCounter[alphabetsIdx]++;
                 }
             }
 
@@ -116,12 +103,14 @@ class Solution2 implements Solution {
         public void addChar(char ch) {
             int alphabetsIdx = (int)ch - 65;
 
-            if (currAlphaNum[alphabetsIdx] == Integer.MIN_VALUE) {
+            // 如果不是 t 中的字母就返回
+            if (windowAlphaNum[alphabetsIdx] == Integer.MIN_VALUE) {
                 return;
             }
 
-            currAlphaNum[alphabetsIdx] = ++currAlphaNum[alphabetsIdx];
-            if (currAlphaNum[alphabetsIdx] == alphaCounter[alphabetsIdx]) {
+            windowAlphaNum[alphabetsIdx]++;
+            // 如果 窗口中的该字母数=t中的该字母数，就把字母命中数加1.
+            if (windowAlphaNum[alphabetsIdx] == alphaCounter[alphabetsIdx]) {
                 hitCounter++;
             }
 
@@ -132,18 +121,20 @@ class Solution2 implements Solution {
         public void deleteChar(char ch) {
             int alphaIdx = (int)ch - 65;
 
-            if (currAlphaNum[alphaIdx] == Integer.MIN_VALUE) {
+            if (windowAlphaNum[alphaIdx] == Integer.MIN_VALUE) {
                 return;
             }
 
-            currAlphaNum[alphaIdx] = --currAlphaNum[alphaIdx];
-            // find char in t string, and increment char count
-            if ((currAlphaNum[alphaIdx] + 1) == alphaCounter[alphaIdx]) {
+            // 因为稍后要对该字母出现数减1，所以如果 窗口中的该字母数=t中的该字母数，
+            // 说明该字母将不符合 t 中出现次数的条件。
+            if (windowAlphaNum[alphaIdx] == alphaCounter[alphaIdx]) {
                 hitCounter--;
             }
+            windowAlphaNum[alphaIdx]--;
+
         }
 
-        public boolean isSatisfied() {
+        public boolean isValid() {
             if (hitCounter == totalCounter) {
                 return true;
             } else {
