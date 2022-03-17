@@ -91,6 +91,7 @@ class Solution2 implements Solution {
                 int alphabetsIdx = (int) ch - 65;
                 if (alphaCounter[alphabetsIdx] == Integer.MIN_VALUE) {
                     alphaCounter[alphabetsIdx] = 1;
+                    // 窗口内的字符个数都初始为 0
                     windowAlphaNum[alphabetsIdx] = 0;
                     totalCounter++;
                 } else if (alphaCounter[alphabetsIdx] > 0) {

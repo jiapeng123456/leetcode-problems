@@ -6,13 +6,8 @@ import java.util.*;
 import com.ciaoshen.leetcode.util.*;
 
 /** 
- * log instance is defined in Solution interface
- * this is how slf4j will work in this class:
- * =============================================
- *     if (log.isDebugEnabled()) {
- *         log.debug("a + b = {}", sum);
- *     }
- * =============================================
+ * 使用滑动窗口模板的实现.
+ *
  */
 class Solution2 implements Solution {
 

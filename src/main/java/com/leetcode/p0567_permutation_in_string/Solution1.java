@@ -7,7 +7,7 @@ import com.ciaoshen.leetcode.util.*;
 
 /**
  *
- *
+ * 使用滑动窗口模板的实现
  *
  */
 class Solution1 implements Solution {

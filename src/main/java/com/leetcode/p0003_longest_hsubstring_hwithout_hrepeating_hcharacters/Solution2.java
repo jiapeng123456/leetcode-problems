@@ -6,8 +6,7 @@ import java.util.*;
 import com.ciaoshen.leetcode.util.*;
 
 /** 
- * 自己实现
- *
+ * 使用滑动窗口模板的实现
  *
  */
 class Solution2 implements Solution {

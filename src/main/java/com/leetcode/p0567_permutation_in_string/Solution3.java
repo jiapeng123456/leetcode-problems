@@ -10,7 +10,9 @@ import java.util.Objects;
 
 /**
  *
- * for execise
+ * 官方的解法。
+ * 窗口长度固定为 s1 的长度 s1。
+ * 每次向右移动一个位置。移动后，把当前 right 加到窗口中，把 left-1 从窗口中减去。
  *
  */
 class Solution3 implements Solution {

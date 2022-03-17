@@ -6,6 +6,7 @@ import java.util.*;
 
 /** 
  * 暴力破解（brute force）
+ * 对于长字符串，时间非常长。
  */
 class Solution3 implements Solution {
 
