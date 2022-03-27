@@ -5,7 +5,6 @@ package com.leetcode.p0034_find_first_and_last_position_of_element_in_sorted_arr
 
 import java.util.*;
 
-import com.algorithem.search.binary_search.TesterRunner;
 import com.ciaoshen.leetcode.util.*;
 
 import static org.junit.Assert.*;
@@ -37,9 +36,11 @@ public class Tester {
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         /* uncomment to switch solutions */
-        solution = new Solution1();
+//        solution = new Solution1();
 //        solution = new Solution2();
 //        solution = new Solution3();
+        solution = new Solution4();
+//        solution = new Solution5();
     }
 
     /** Execute once after all of the test methods are executed in this class. */

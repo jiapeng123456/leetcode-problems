@@ -5,9 +5,9 @@ package com.leetcode.p0034_find_first_and_last_position_of_element_in_sorted_arr
 
 /**
  *
- * for execise for open interval
+ * for execise for closed interval
  */
-class Solution4 implements Solution {
+class Solution5 implements Solution {
 
     public int[] searchRange(int[] nums, int target) {
         if (nums.length == 0) {
@@ -18,17 +18,17 @@ class Solution4 implements Solution {
     }
 
     public int leftBound(int[] nums, int target) {
-        int left = 0, right = nums.length;
+        int left = 0, right = nums.length - 1;
         int mid;
 
-        while (left < right) {
+        while (left <= right) {
             mid = left + (right - left) / 2;
             if (nums[mid] == target) {
-                right = mid;
+                right = mid - 1;
             } else if (nums[mid] < target) {
                 left = mid + 1;
             } else if (nums[mid] > target) {
-                right = mid;
+                right = mid - 1;
             }
         }
 
@@ -41,24 +41,24 @@ class Solution4 implements Solution {
 
 
     public int rightBound(int[] nums, int target) {
-        int left = 0, right = nums.length;
+        int left = 0, right = nums.length - 1;
         int mid;
 
-        while (left < right) {
+        while (left <= right) {
             mid = left + (right - left) / 2;
             if (nums[mid] == target) {
                 left = mid + 1;
             } else if (nums[mid] < target) {
                 left = mid + 1;
             } else if (nums[mid] > target) {
-                right = mid;
+                right = mid - 1;
             }
         }
 
-        if (left == 0 || nums[left - 1] != target) {
+        if (right < 0 || nums[right] != target) {
             return -1;
         }
 
-        return left - 1;
+        return right;
     }
 }

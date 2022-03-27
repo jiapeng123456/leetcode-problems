@@ -5,7 +5,6 @@ package com.leetcode.p0704_Binary_Search;
 
 import java.util.*;
 
-import com.algorithem.search.binary_search.TesterRunner;
 import com.ciaoshen.leetcode.util.*;
 
 import static org.junit.Assert.*;
