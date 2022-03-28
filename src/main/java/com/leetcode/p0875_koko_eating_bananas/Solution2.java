@@ -6,7 +6,7 @@ import java.util.*;
 import com.ciaoshen.leetcode.util.*;
 
 /** 
- * 自己实现。
+ * 自己实现：二分搜索
  * calculateEatAllTimes 方法实现的不好，会超时。
  */
 class Solution2 implements Solution {

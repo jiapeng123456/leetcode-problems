@@ -7,7 +7,7 @@ import com.ciaoshen.leetcode.util.*;
 
 /**
  *
- * 书上实现。
+ * 书上实现：二分搜索
  * calculateEatAllTimes 实现的好，不会超时。
  */
 class Solution1 implements Solution {
