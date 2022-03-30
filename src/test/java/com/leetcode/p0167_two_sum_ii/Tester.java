@@ -40,8 +40,8 @@ public class Tester {
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         /* uncomment to switch solutions */
-        solution = new Solution1();
-        // solution = new Solution2();
+//        solution = new Solution1();
+         solution = new Solution2();
     }
 
     /**

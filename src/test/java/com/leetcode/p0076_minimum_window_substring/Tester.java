@@ -57,7 +57,7 @@ public class Tester {
     @Parameters
     public static Collection<Object[]> testcases() {
         return Arrays.asList(new Object[][]{
-//                {"ADOBECODEBANC", "ABC", "BANC"},
+                {"ADOBECODEBANC", "ABC", "BANC"},
                 {"a", "a", "a"},
                 {"a", "aa", ""},
                 {"ab", "A", ""},
