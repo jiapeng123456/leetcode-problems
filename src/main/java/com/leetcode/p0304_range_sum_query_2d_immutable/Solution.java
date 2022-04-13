@@ -1,0 +1,17 @@
+/**
+ * Leetcode - p0304_range_sum_query_2d_immutable
+ */
+package com.leetcode.p0304_range_sum_query_2d_immutable;
+import java.util.*;
+import com.ciaoshen.leetcode.util.*;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+interface Solution {
+
+    // use this Object to print the log (call from slf4j facade)
+    static Logger log = LoggerFactory.getLogger(Solution.class);
+
+    int sumRegion(int row1, int col1, int row2, int col2);
+}
