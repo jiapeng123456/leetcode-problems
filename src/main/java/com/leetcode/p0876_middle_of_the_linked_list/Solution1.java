@@ -6,18 +6,20 @@ import java.util.*;
 import com.ciaoshen.leetcode.util.*;
 
 /** 
- * log instance is defined in Solution interface
- * this is how slf4j will work in this class:
- * =============================================
- *     if (log.isDebugEnabled()) {
- *         log.debug("a + b = {}", sum);
- *     }
- * =============================================
+ *  官方实现
  */
 class Solution1 implements Solution {
 
     public ListNode middleNode(ListNode head) {
-        return null;
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
     }
 
 }

@@ -11,6 +11,8 @@ import com.ciaoshen.leetcode.util.ListNode;
 class Solution3 implements Solution {
 
     public ListNode detectCycle(ListNode head) {
+
         return null;
     }
+
 }

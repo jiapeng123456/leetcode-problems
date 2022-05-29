@@ -12,6 +12,7 @@ import com.ciaoshen.leetcode.util.ListNode;
 class Solution3 implements Solution {
 
     public boolean hasCycle(ListNode head) {
+
         return false;
     }
 }

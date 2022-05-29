@@ -47,7 +47,7 @@ public class Tester {
     public static Collection<Object[]> testcases() {
         return Arrays.asList(new Object[][]{
                 {new int[]{1, 1, 1}, 2, 2},
-                {new int[]{1, 2, 3}, 2, 1},
+                {new int[]{1, 2, 3}, 3, 2},
                 // {},     // test case 1 (init parameters below: {para1, para2, expected})
                 // {},     // test case 2 (init parameters below: {para1, para2, expected})
                 // {}      // test case 3 (init parameters below: {para1, para2, expected})

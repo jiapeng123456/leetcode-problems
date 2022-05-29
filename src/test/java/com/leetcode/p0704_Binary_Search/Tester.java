@@ -49,7 +49,7 @@ public class Tester {
         return Arrays.asList(new Object[][]{
                 // hit cases
                 // odd number array
-                {new int[]{1, 3, 5, 7, 9}, 7, 3},
+//                {new int[]{1, 3, 5, 7, 9}, 7, 3},
                 // even number array
                 {new int[]{1, 3, 5, 7, 9, 11}, 11, 5},
 

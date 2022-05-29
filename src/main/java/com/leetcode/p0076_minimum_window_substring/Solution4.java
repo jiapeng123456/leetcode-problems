@@ -14,7 +14,8 @@ import java.util.Objects;
 class Solution4 implements Solution {
 
     public String minWindow(String s, String t) {
-        return "";
+
+        return null;
     }
 
 }

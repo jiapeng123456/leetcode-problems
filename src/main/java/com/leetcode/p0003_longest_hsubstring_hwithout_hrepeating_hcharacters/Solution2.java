@@ -18,9 +18,7 @@ class Solution2 implements Solution {
         }
 
         Map<Character, Integer> window = new HashMap<>();
-        Map<Character, Integer> need = new HashMap<>();
         for (char c : s.toCharArray()) {
-            need.put(c, need.getOrDefault(c, 0) + 1);
             window.put(c, 0);
         }
 
